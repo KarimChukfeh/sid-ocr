@@ -1,8 +1,6 @@
 import time
 import math
 import subprocess
-from PIL import image
-
 from neopixel import *
 
 # LED strip configuration:
