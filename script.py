@@ -31,8 +31,7 @@ if __name__ == '__main__':
         raw = Image.open(img)
         raw.show()
         result = original.crop((25, 25, 100, 100))
-        strip.
-        
+                
         
         
         
