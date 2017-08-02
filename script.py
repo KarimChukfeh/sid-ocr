@@ -26,7 +26,7 @@ if __name__ == '__main__':
         strip.setPixelColor(i, Color(255, 255, 255))
     while True:
         strip.show()
-        subprocess.call("raspistill -o raw.jpg")
+        subprocess.call("raspistill -o raw.jpg", shell=True)
         img = "raw.jpg"
         raw = Image.open(img)
         raw.show()
