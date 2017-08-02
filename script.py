@@ -31,6 +31,9 @@ if __name__ == '__main__':
         raw = Image.open(img)
         raw.show()
         result = original.crop((25, 25, 100, 100))
+        for i in range(0, strip.numPixels(), 1):
+            strip.setPixelColor(i, Color(0, 0, 0))
+        break
                 
         
         
