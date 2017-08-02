@@ -28,9 +28,7 @@ if __name__ == '__main__':
         strip.show()
         subprocess.call("raspistill -o raw.jpg", shell=True)
         img = "raw.jpg"
-        raw = Image.open(img)
-        raw.show()
-        result = original.crop((25, 25, 100, 100))
+        subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
         for i in range(0, strip.numPixels(), 1):
             strip.setPixelColor(i, Color(0, 0, 0))
         break
