@@ -23,12 +23,13 @@ if __name__ == '__main__':
     for i in range(0, strip.numPixels(), 1):
         strip.setPixelColor(i, Color(255, 255, 255))
     strip.show()
-    subprocess.call("raspistill -o raw.jpg --timeout 1", shell=True)
-    img = "raw.jpg"
-    subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
+    subprocess.call("raspistill -o raw.jpg --timeout 2", shell=True)
     for i in range(0, strip.numPixels(), 1):
         strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
+    img = "raw.jpg"
+    subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
+
         
                 
         
