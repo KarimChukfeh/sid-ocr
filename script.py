@@ -27,7 +27,7 @@ if __name__ == '__main__':
     img = "raw.jpg"
     subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
     for i in range(0, strip.numPixels(), 1):
-        strip.setPixelColor(i, 0, 0, 0, 125)
+        strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
         
                 
