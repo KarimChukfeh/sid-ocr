@@ -33,7 +33,7 @@ def trim_img():
     subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
 
 def ocr_sid():
-    subprocess.call("tesseract stuff.jpg text", shell=True)
+    subprocess.call("tesseract stuff.jpg erfid/text", shell=True)
     f = open('text.txt', 'r')
     return f.read(7)
 
@@ -46,7 +46,7 @@ def good_id(sid):
         return False
 
 def tell_ruby(sid):
-    file = open("/erfid/sid.txt","w")
+    file = open("erfid/sid.txt","w")
     file.write("Go")
     file.write(sid)
     file.close
