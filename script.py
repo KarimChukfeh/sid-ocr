@@ -17,7 +17,7 @@ def neoring():
     return neoring
 
 def flash_on(neoring):
-    for i in range(0, strip.numPixels(), 1):
+    for i in range(0, neoring.numPixels(), 1):
         neoring.setPixelColor(i, Color(255, 255, 255))
     neoring.show()
 
@@ -25,7 +25,7 @@ def raspistill():
     subprocess.call("raspistill -o raw.jpg --timeout 2", shell=True)
 
 def flash_off(neoring):
-    for i in range(0, strip.numPixels(), 1):
+    for i in range(0, neoring.numPixels(), 1):
         neoring.setPixelColor(i, Color(0, 0, 0))
     neoring.show()
 
