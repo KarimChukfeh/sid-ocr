@@ -14,7 +14,7 @@ def neoring():
     neoring = Adafruit_NeoPixel(
         LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
     neoring.begin()
-    return strip
+    return neoring
 
 def flash_on(neoring):
     for i in range(0, strip.numPixels(), 1):
