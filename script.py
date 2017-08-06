@@ -4,31 +4,30 @@ import subprocess
 import json
 from neopixel import *
 
-
-def prepare_flash():    
-    # LED strip configuration:
+def neoring():
     LED_COUNT = 12      
     LED_PIN = 18      
     LED_FREQ_HZ = 800000  
     LED_DMA = 5       
     LED_BRIGHTNESS = 100 
     LED_INVERT = False
-    strip = Adafruit_NeoPixel(
+    neoring = Adafruit_NeoPixel(
         LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-    strip.begin()
+    neoring.begin()
+    return strip
 
-def flash_on():
+def flash_on(neoring):
     for i in range(0, strip.numPixels(), 1):
-        strip.setPixelColor(i, Color(255, 255, 255))
-    strip.show()
+        neoring.setPixelColor(i, Color(255, 255, 255))
+    neoring.show()
 
 def raspistill():
     subprocess.call("raspistill -o raw.jpg --timeout 2", shell=True)
 
-def flash_off():
+def flash_off(neoring):
     for i in range(0, strip.numPixels(), 1):
-        strip.setPixelColor(i, Color(0, 0, 0))
-    strip.show()
+        neoring.setPixelColor(i, Color(0, 0, 0))
+    neoring.show()
 
 def trim_img():
     subprocess.call("convert raw.jpg -crop 650x260+1250+800 stuff.jpg", shell=True)
@@ -58,10 +57,9 @@ def wait_for_ruby():
     
 
 if __name__ == '__main__':
-    perepare_flash()
-    flash_on()
+    flash_on(neoring())
     raspistill()
-    flash_off()
+    flash_off(neoring())
     trim_img()
     sid = ocr_sid()
     if good_id(sid):
